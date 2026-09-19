@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>皇室战争 塔皮肤图鉴 · Clash Royale Tower Skin Gallery</title>
+<title>皇室战争 塔皮图鉴 · Clash Royale Tower Skin Gallery</title>
 <style>
 :root{
   --bg:#f4f6fb; --ink:#131a2e; --ink2:#4a5570; --ink3:#8792ad;
@@ -122,7 +122,7 @@ footer code{background:#eef1f8;padding:1.5px 5px;border-radius:5px;font-size:12p
 <header class="hero">
   <div class="wrap">
     <div class="chip-top">CLASH ROYALE · <b>TOWER SKIN GALLERY</b></div>
-    <h1>皇室战争 <em>全部塔皮肤</em> 图鉴</h1>
+    <h1>皇室战争 <em>全部塔皮</em> 图鉴</h1>
     <p class="lead" id="lead"></p>
     <div class="stats" id="stats"></div>
     <div class="hint">↓ 向下滚动浏览 · 每张卡片为国王塔 + 公主塔（蓝方视角）· 点击查看大图</div>
@@ -151,15 +151,14 @@ footer code{background:#eef1f8;padding:1.5px 5px;border-radius:5px;font-size:12p
 <main class="wrap">
   <div class="bar">
     <div class="n" id="count"></div>
-    <div class="tip">数据源 tower_skin_sets.csv · 图像由游戏内 .sc 精灵重建 · 缺失素材已从官方 CDN 补齐</div>
+    <div class="tip">塔皮收录截止到2026年6月。</div>
   </div>
   <div class="grid" id="grid"></div>
   <div class="empty" id="empty" style="display:none">没有符合条件的塔皮肤，试试放宽筛选条件。</div>
 </main>
 
 <footer class="wrap">
-  <div>塔皮肤数据来自 <code>tower_skin_sets.csv</code>。图像由游戏内 <code>.sc</code> 精灵重建渲染：
-  每套皮肤展示国王塔与公主塔（蓝方），导出名按 <code>kingtower_* / princesstower_*</code> 优先级自动匹配。
+  <div>
   <span id="f-drop"></span></div>
 </footer>
 
@@ -189,8 +188,7 @@ const TOWER = '<svg width="38" height="38" viewBox="0 0 24 24" fill="none" strok
   const seas = new Set(K.filter(x=>x.s).map(x=>x.s));
   const both = K.filter(x=>x.k&&x.p).length;
   document.getElementById('lead').textContent =
-    `按游戏内塔皮肤数据表 tower_skin_sets.csv 整理的 ${K.length} 套塔皮肤，全部已用游戏内精灵文件重建出官方图像，`
-    + `其中 ${both} 套国王塔 + 公主塔双图齐全、${col} 套可收集。可按赛季筛选。`;
+    ``;
   const S=[[K.length,"皮肤总数"],[both,"双塔图齐全"],[col,"可收集"],[seas.size,"涉及赛季"],[shop,"可上架商店"]];
   document.getElementById('stats').innerHTML = S.map(([v,l],i)=>
     `<div class="stat${i===1?' warn':''}"><b>${v}</b><span>${l}</span></div>`).join('');
