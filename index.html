@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>皇室战争 塔皮肤图鉴 · Clash Royale Tower Skin Gallery</title>
+<style>
+:root{
+  --bg:#f4f6fb; --ink:#131a2e; --ink2:#4a5570; --ink3:#8792ad;
+  --line:#e3e7f2; --card:#ffffff;
+  --blue:#3b6ef0; --gold:#e0a020; --red:#e0453a;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(20,30,70,.05), 0 8px 24px -12px rgba(20,30,70,.18);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:linear-gradient(180deg,#eef7f2 0%, var(--bg) 340px, var(--bg) 100%);
+  color:var(--ink);
+  font:15px/1.55 system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1420px;margin:0 auto;padding:0 20px}
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#0c2b22 0%,#14543f 45%,#1f8a5f 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 320px at 12% -10%,rgba(120,255,190,.28),transparent 60%),
+  radial-gradient(600px 300px at 88% 0%,rgba(255,214,120,.18),transparent 60%)}
+.hero .wrap{position:relative;padding:54px 20px 34px}
+.chip-top{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+  font-size:12.5px;letter-spacing:.14em;font-weight:600}
+.chip-top b{color:#ffd15c;letter-spacing:.02em}
+h1{margin:16px 0 8px;font-size:clamp(26px,4.4vw,44px);line-height:1.14;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,#ffd15c,#ffb03a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin:0;max-width:78ch;color:rgba(255,255,255,.76);font-size:14.5px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:12px;margin-top:28px}
+.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-size:26px;line-height:1.1;letter-spacing:-.02em}
+.stat span{font-size:12px;color:rgba(255,255,255,.7)}
+.stat.warn b{color:#ffcf5c}
+.hint{margin-top:20px;font-size:12.5px;color:rgba(255,255,255,.55)}
+.toolbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);box-shadow:0 6px 18px -16px rgba(20,30,70,.5)}
+.toolbar .wrap{padding:11px 20px;display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.search{position:relative;flex:1 1 250px;min-width:210px}
+.search input{width:100%;padding:9px 12px 9px 34px;border:1px solid var(--line);border-radius:10px;
+  background:#fff;font:inherit;font-size:14px;color:var(--ink);outline:none}
+.search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,110,240,.14)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.42}
+select,.tgl{padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#fff;
+  font:inherit;font-size:13.5px;color:var(--ink2);cursor:pointer;outline:none}
+.tgl:hover{border-color:#c9d2ea}
+.tgl.on{background:linear-gradient(180deg,#1f9e6a,#137a4e);border-color:#137a4e;color:#fff;font-weight:600}
+.tgl.gold.on{background:linear-gradient(180deg,#e8a92c,#cf8f0f);border-color:#cf8f0f;color:#3a2600}
+.clear{background:none;border:none;color:var(--ink3);font:inherit;font-size:13px;cursor:pointer;padding:9px 4px}
+.clear:hover{color:var(--red)}
+main{padding:20px 0 70px}
+.bar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:6px 0 14px;flex-wrap:wrap}
+.bar .n{font-size:13.5px;color:var(--ink2)}
+.bar .n b{color:var(--ink)}
+.bar .tip{font-size:12.5px;color:var(--ink3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;cursor:pointer;transition:transform .16s ease, box-shadow .16s ease, border-color .16s;
+  display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfd8ee}
+.card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.card .stripe{height:3px;background:var(--hc,#94a3b8)}
+.thumb{position:relative;aspect-ratio:5/4;display:flex;align-items:flex-end;justify-content:center;gap:4%;
+  background:radial-gradient(circle at 50% 30%,#e8f6ee,#d7ecdf);border-bottom:1px solid #e4f0e9;
+  overflow:hidden;padding:10px 8px 0}
+.thumb img{object-fit:contain;transition:transform .18s ease}
+.thumb img.k{height:88%}
+.thumb img.p{height:64%}
+.card:hover .thumb img{transform:scale(1.04)}
+.thumb .one{height:86%;display:flex;align-items:flex-end;justify-content:center}
+.thumb .one img{height:100%}
+.badge{position:absolute;top:7px;right:7px;z-index:2;font-size:10.5px;font-weight:700;
+  padding:2.5px 7px;border-radius:999px;background:#e8f4ec;color:#1a7a4a;border:1px solid #bfe3cd}
+.badge.shop{background:#e8efff;color:#25459e;border-color:#c3d4f5}
+.badge.hide{background:#f2f3f7;color:#8792ad;border-color:#dfe3ee}
+.cbody{padding:9px 10px 10px;display:flex;flex-direction:column;gap:5px;flex:1}
+.cname{font-size:13px;font-weight:650;line-height:1.3;letter-spacing:-.01em;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cmeta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:auto}
+.fam{font-size:11px;padding:2px 7px;border-radius:6px;background:#eef7f2;color:#1f6e4e;font-weight:600;
+  white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.yr{font-size:11px;color:var(--ink3);font-variant-numeric:tabular-nums}
+.lb{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:22px}
+.lb.open{display:flex}
+.lb-bg{position:absolute;inset:0;background:rgba(15,21,44,.55);backdrop-filter:blur(4px)}
+.lb-panel{position:relative;background:#fff;border-radius:18px;width:min(880px,100%);max-height:88vh;overflow:auto;
+  box-shadow:0 40px 90px -30px rgba(10,16,40,.55);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr)}
+@media(max-width:760px){.lb-panel{grid-template-columns:1fr}}
+.lb-vis{background:radial-gradient(circle at 50% 36%,#f2faf5,#e2efe7);display:flex;align-items:flex-end;justify-content:center;
+  gap:5%;padding:26px 20px;border-right:1px solid var(--line)}
+.lb-vis img.k{max-height:min(44vh,320px);max-width:56%;object-fit:contain}
+.lb-vis img.p{max-height:min(32vh,230px);max-width:38%;object-fit:contain}
+.lb-vis .none{color:#adb6cc;text-align:center}
+.lb-info{padding:22px 24px 26px;min-width:0}
+.lb-info h2{margin:0 0 4px;font-size:22px;line-height:1.25;letter-spacing:-.02em}
+.lb-sub{color:var(--ink3);font-size:13px;margin-bottom:16px}
+.lb-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tg{font-size:11.5px;padding:3px 9px;border-radius:999px;background:#f1f4fb;color:var(--ink2);font-weight:600}
+.tg.g{background:#e8f4ec;color:#1a7a4a}
+.tg.b{background:#e8efff;color:#25459e}
+dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:7px 14px;font-size:13px}
+dt{color:var(--ink3);white-space:nowrap}
+dd{margin:0;color:var(--ink);word-break:break-all;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+.lb-nav{position:absolute;top:12px;right:14px;display:flex;gap:6px}
+.lb-nav button{width:32px;height:32px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer;
+  color:var(--ink2);font-size:15px;line-height:1;display:grid;place-items:center}
+.lb-nav button:hover{background:#f4f6fb;border-color:#c9d2ea}
+footer{border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px;padding:22px 0 40px}
+footer code{background:#eef1f8;padding:1.5px 5px;border-radius:5px;font-size:12px;color:var(--ink2)}
+.empty{padding:60px 0;text-align:center;color:var(--ink3)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="chip-top">CLASH ROYALE · <b>TOWER SKIN GALLERY</b></div>
+    <h1>皇室战争 <em>全部塔皮肤</em> 图鉴</h1>
+    <p class="lead" id="lead"></p>
+    <div class="stats" id="stats"></div>
+    <div class="hint">↓ 向下滚动浏览 · 每张卡片为国王塔 + 公主塔（蓝方视角）· 点击查看大图</div>
+  </div>
+</header>
+
+<nav class="toolbar">
+  <div class="wrap">
+    <label class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#131a2e" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      <input id="q" type="search" placeholder="搜索名称 / 赛季 / 资源文件名…" autocomplete="off">
+    </label>
+    <select id="sea"><option value="">全部赛季</option></select>
+    <select id="sort">
+      <option value="idx">按皮肤 Id</option>
+      <option value="season">按赛季分组</option>
+      <option value="name">名称 A → Z</option>
+    </select>
+    <button class="tgl" id="t-col" title="仅看可收集（Collectable）">可收集</button>
+    <button class="tgl gold" id="t-shop" title="仅看可上架商店（AvailableForShopOffer）">可上架</button>
+    <button class="tgl" id="t-hid" title="显示对客户端隐藏的条目">含隐藏</button>
+    <button class="clear" id="reset">重置</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="bar">
+    <div class="n" id="count"></div>
+    <div class="tip">数据源 tower_skin_sets.csv · 图像由游戏内 .sc 精灵重建 · 缺失素材已从官方 CDN 补齐</div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">没有符合条件的塔皮肤，试试放宽筛选条件。</div>
+</main>
+
+<footer class="wrap">
+  <div>塔皮肤数据来自 <code>tower_skin_sets.csv</code>。图像由游戏内 <code>.sc</code> 精灵重建渲染：
+  每套皮肤展示国王塔与公主塔（蓝方），导出名按 <code>kingtower_* / princesstower_*</code> 优先级自动匹配。
+  <span id="f-drop"></span></div>
+</footer>
+
+<div class="lb" id="lb">
+  <div class="lb-bg" data-close></div>
+  <div class="lb-panel" role="dialog" aria-modal="true">
+    <div class="lb-nav">
+      <button id="prev" title="上一个 (←)">‹</button>
+      <button id="next" title="下一个 (→)">›</button>
+      <button data-close title="关闭 (Esc)">✕</button>
+    </div>
+    <div class="lb-vis" id="lb-vis"></div>
+    <div class="lb-info" id="lb-info"></div>
+  </div>
+</div>
+
+<script>
+const META = {"generated":"2026-09-20","total":158,"withKing":158,"withPrincess":158,"droppedCount":0,"dropped":[],"css":"assets/skins/","skins":[{"n":"Default","t":"Default","s":0,"id":"87000001","sc":"building_tower.sc","col":true,"shop":false,"hid":false,"k":"Default_king.png","p":"Default_princess.png","ke":"","pe":""},{"n":"GoldRush","t":"Gold Rush","s":0,"id":"87000002","sc":"building_tower.sc","col":false,"shop":false,"hid":false,"k":"GoldRush_king.png","p":"GoldRush_princess.png","ke":"","pe":""},{"n":"GemRush","t":"Gem Rush","s":0,"id":"87000003","sc":"building_tower.sc","col":false,"shop":false,"hid":false,"k":"GemRush_king.png","p":"GemRush_princess.png","ke":"","pe":""},{"n":"ElixerPump","t":"Elixer Pump","s":0,"id":"87000004","sc":"building_tower.sc","col":false,"shop":false,"hid":false,"k":"ElixerPump_king.png","p":"ElixerPump_princess.png","ke":"","pe":""},{"n":"Flood","t":"Flood","s":0,"id":"87000007","sc":"building_tower.sc","col":false,"shop":false,"hid":false,"k":"Flood_king.png","p":"Flood_princess.png","ke":"","pe":""},{"n":"TowerSkin1","t":"Season 1","s":1,"id":"1","sc":"towerskin_season_01_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1_king.png","p":"TowerSkin1_princess.png","ke":"","pe":""},{"n":"TowerSkin2","t":"Season 2","s":2,"id":"2","sc":"towerskin_season_02_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin2_king.png","p":"TowerSkin2_princess.png","ke":"","pe":""},{"n":"TowerSkin3","t":"Season 3","s":3,"id":"3","sc":"towerskin_season_03_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin3_king.png","p":"TowerSkin3_princess.png","ke":"","pe":""},{"n":"TowerSkin4","t":"Season 4","s":4,"id":"4","sc":"towerskin_season_04_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin4_king.png","p":"TowerSkin4_princess.png","ke":"","pe":""},{"n":"TowerSkin5","t":"Season 5","s":5,"id":"5","sc":"towerskin_season_05_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin5_king.png","p":"TowerSkin5_princess.png","ke":"","pe":""},{"n":"TowerSkin1001","t":"Season 6","s":6,"id":"1001","sc":"towerskin_season_06a_dl.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1001_king.png","p":"TowerSkin1001_princess.png","ke":"","pe":""},{"n":"TowerSkin2001","t":"Season 6","s":6,"id":"2001","sc":"towerskin_season_06b_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin2001_king.png","p":"TowerSkin2001_princess.png","ke":"","pe":""},{"n":"TowerSkin6","t":"Season 6","s":6,"id":"6","sc":"towerskin_season_06c_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin6_king.png","p":"TowerSkin6_princess.png","ke":"","pe":""},{"n":"TowerSkin7","t":"Season 7","s":7,"id":"7","sc":"towerskin_season_07_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin7_king.png","p":"TowerSkin7_princess.png","ke":"","pe":""},{"n":"TowerSkin8","t":"Season 8","s":8,"id":"8","sc":"towerskin_season_08_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin8_king.png","p":"TowerSkin8_princess.png","ke":"","pe":""},{"n":"TowerSkin9","t":"Season 9","s":9,"id":"9","sc":"towerskin_season_09_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin9_king.png","p":"TowerSkin9_princess.png","ke":"","pe":""},{"n":"TowerSkin10","t":"Season 10","s":10,"id":"10","sc":"towerskin_season_10_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin10_king.png","p":"TowerSkin10_princess.png","ke":"","pe":""},{"n":"TowerSkin11","t":"Season 11","s":11,"id":"11","sc":"towerskin_season_11_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin11_king.png","p":"TowerSkin11_princess.png","ke":"","pe":""},{"n":"TowerSkin12","t":"Season 12","s":12,"id":"12","sc":"towerskin_season_12_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin12_king.png","p":"TowerSkin12_princess.png","ke":"","pe":""},{"n":"TowerSkin13","t":"Season 13","s":13,"id":"13","sc":"towerskin_season_13_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin13_king.png","p":"TowerSkin13_princess.png","ke":"","pe":""},{"n":"TowerSkin14","t":"Season 14","s":14,"id":"14","sc":"towerskin_season_14_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin14_king.png","p":"TowerSkin14_princess.png","ke":"","pe":""},{"n":"TowerSkin15","t":"Season 15","s":15,"id":"15","sc":"towerskin_season_15a_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin15_king.png","p":"TowerSkin15_princess.png","ke":"","pe":""},{"n":"TowerSkin2002","t":"Season 15","s":15,"id":"2002","sc":"towerskin_season_15b_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin2002_king.png","p":"TowerSkin2002_princess.png","ke":"","pe":""},{"n":"TowerSkin16","t":"Season 16","s":16,"id":"16","sc":"towerskin_season_16_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin16_king.png","p":"TowerSkin16_princess.png","ke":"","pe":""},{"n":"TowerSkin17","t":"Season 17","s":17,"id":"17","sc":"towerskin_season_17_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin17_king.png","p":"TowerSkin17_princess.png","ke":"","pe":""},{"n":"TowerSkin1002","t":"Season 18","s":18,"id":"1002","sc":"towerskin_season_18a_dl.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1002_king.png","p":"TowerSkin1002_princess.png","ke":"","pe":""},{"n":"TowerSkin18","t":"Season 18","s":18,"id":"18","sc":"towerskin_season_18b_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin18_king.png","p":"TowerSkin18_princess.png","ke":"","pe":""},{"n":"TowerSkin19","t":"Season 19","s":19,"id":"19","sc":"towerskin_season_19_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin19_king.png","p":"TowerSkin19_princess.png","ke":"","pe":""},{"n":"TowerSkin20","t":"Season 20","s":20,"id":"20","sc":"towerskin_season_20_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin20_king.png","p":"TowerSkin20_princess.png","ke":"","pe":""},{"n":"TowerSkin21","t":"Season 21","s":21,"id":"21","sc":"towerskin_season_21_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin21_king.png","p":"TowerSkin21_princess.png","ke":"","pe":""},{"n":"TowerSkin22","t":"Season 22","s":22,"id":"22","sc":"towerskin_season_22_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin22_king.png","p":"TowerSkin22_princess.png","ke":"","pe":""},{"n":"TowerSkin23","t":"Season 23","s":23,"id":"23","sc":"towerskin_season_23_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin23_king.png","p":"TowerSkin23_princess.png","ke":"","pe":""},{"n":"TowerSkin24","t":"Season 24","s":24,"id":"24","sc":"towerskin_season_24_dl.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin24_king.png","p":"TowerSkin24_princess.png","ke":"","pe":""},{"n":"TowerSkin25","t":"Season 25","s":25,"id":"25","sc":"towerskin_season_25.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin25_king.png","p":"TowerSkin25_princess.png","ke":"","pe":""},{"n":"TowerSkin26","t":"Season 26","s":26,"id":"26","sc":"towerskin_season_26.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin26_king.png","p":"TowerSkin26_princess.png","ke":"","pe":""},{"n":"TowerSkin27","t":"Season 27","s":27,"id":"27","sc":"towerskin_season_27.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin27_king.png","p":"TowerSkin27_princess.png","ke":"","pe":""},{"n":"TowerSkin28","t":"Season 28","s":28,"id":"28","sc":"towerskin_season_28.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin28_king.png","p":"TowerSkin28_princess.png","ke":"","pe":""},{"n":"TowerSkin29","t":"Season 29","s":29,"id":"29","sc":"towerskin_season_29a.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin29_king.png","p":"TowerSkin29_princess.png","ke":"","pe":""},{"n":"TowerSkin30","t":"Season 29","s":29,"id":"30","sc":"towerskin_season_29b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin30_king.png","p":"TowerSkin30_princess.png","ke":"","pe":""},{"n":"TowerSkin31","t":"Season 29","s":29,"id":"31","sc":"towerskin_season_29c.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin31_king.png","p":"TowerSkin31_princess.png","ke":"","pe":""},{"n":"TowerSkin1003","t":"Season 30","s":30,"id":"1003","sc":"towerskin_season_30b.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1003_king.png","p":"TowerSkin1003_princess.png","ke":"","pe":""},{"n":"TowerSkin1004","t":"Season 31","s":31,"id":"1004","sc":"towerskin_season_31.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1004_king.png","p":"TowerSkin1004_princess.png","ke":"","pe":""},{"n":"TowerSkin33","t":"Season 32","s":32,"id":"33","sc":"towerskin_season_32.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin33_king.png","p":"TowerSkin33_princess.png","ke":"","pe":""},{"n":"TowerSkin34","t":"Season 33","s":33,"id":"34","sc":"towerskin_season_33.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin34_king.png","p":"TowerSkin34_princess.png","ke":"","pe":""},{"n":"TowerSkin1005","t":"Season 34","s":34,"id":"1005","sc":"towerskin_season_34.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1005_king.png","p":"TowerSkin1005_princess.png","ke":"","pe":""},{"n":"TowerSkin35","t":"Season 34","s":34,"id":"35","sc":"towerskin_season_34b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin35_king.png","p":"TowerSkin35_princess.png","ke":"","pe":""},{"n":"TowerSkin36","t":"Season 35","s":35,"id":"36","sc":"towerskin_season_35b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin36_king.png","p":"TowerSkin36_princess.png","ke":"","pe":""},{"n":"TowerSkin37","t":"Season 36","s":36,"id":"37","sc":"towerskin_season_36.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin37_king.png","p":"TowerSkin37_princess.png","ke":"","pe":""},{"n":"TowerSkin1007","t":"Season 36","s":36,"id":"1007","sc":"towerskin_season_36b.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1007_king.png","p":"TowerSkin1007_princess.png","ke":"","pe":""},{"n":"TowerSkin38","t":"Season 37","s":37,"id":"38","sc":"towerskin_season_37.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin38_king.png","p":"TowerSkin38_princess.png","ke":"","pe":""},{"n":"TowerSkin39","t":"Season 38","s":38,"id":"39","sc":"towerskin_season_38.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin39_king.png","p":"TowerSkin39_princess.png","ke":"","pe":""},{"n":"TowerSkin1008","t":"Season 38","s":38,"id":"1008","sc":"towerskin_season_38b.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1008_king.png","p":"TowerSkin1008_princess.png","ke":"","pe":""},{"n":"TowerSkin2003","t":"Season 39","s":39,"id":"2003","sc":"towerskin_season_39b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin2003_king.png","p":"TowerSkin2003_princess.png","ke":"","pe":""},{"n":"TowerSkin40","t":"Season 39","s":39,"id":"40","sc":"towerskin_season_39.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin40_king.png","p":"TowerSkin40_princess.png","ke":"","pe":""},{"n":"TowerSkin41","t":"Season 40","s":40,"id":"41","sc":"towerskin_season_40.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin41_king.png","p":"TowerSkin41_princess.png","ke":"","pe":""},{"n":"TowerSkin1009","t":"Season 40","s":40,"id":"1009","sc":"towerskin_season_40b.sc","col":true,"shop":true,"hid":false,"k":"TowerSkin1009_king.png","p":"TowerSkin1009_princess.png","ke":"","pe":""},{"n":"TowerSkin42","t":"Season 41","s":41,"id":"42","sc":"towerskin_season_41.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin42_king.png","p":"TowerSkin42_princess.png","ke":"","pe":""},{"n":"TowerSkin1010","t":"Season 41","s":41,"id":"1010","sc":"towerskin_season_41b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1010_king.png","p":"TowerSkin1010_princess.png","ke":"","pe":""},{"n":"TowerSkin32","t":"Season 30","s":30,"id":"32","sc":"towerskin_season_30a.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin32_king.png","p":"TowerSkin32_princess.png","ke":"","pe":""},{"n":"TowerSkin1011","t":"Season 42","s":42,"id":"1011","sc":"towerskin_season_42.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1011_king.png","p":"TowerSkin1011_princess.png","ke":"","pe":""},{"n":"TowerSkin43","t":"Season 42","s":42,"id":"43","sc":"towerskin_season_42b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin43_king.png","p":"TowerSkin43_princess.png","ke":"","pe":""},{"n":"TowerSkin2004","t":"Season 42","s":42,"id":"2004","sc":"towerskin_season_42c.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin2004_king.png","p":"TowerSkin2004_princess.png","ke":"","pe":""},{"n":"TowerSkin44","t":"Season 43","s":43,"id":"44","sc":"towerskin_season_43.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin44_king.png","p":"TowerSkin44_princess.png","ke":"","pe":""},{"n":"TowerSkin1012","t":"Season 43","s":43,"id":"1012","sc":"towerskin_season_43b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1012_king.png","p":"TowerSkin1012_princess.png","ke":"","pe":""},{"n":"TowerSkin45","t":"Season 44","s":44,"id":"45","sc":"towerskin_season_44b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin45_king.png","p":"TowerSkin45_princess.png","ke":"","pe":""},{"n":"TowerSkin1013","t":"Season 44","s":44,"id":"1013","sc":"towerskin_season_44.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1013_king.png","p":"TowerSkin1013_princess.png","ke":"","pe":""},{"n":"TowerSkin1014","t":"Season 45","s":45,"id":"1014","sc":"towerskin_season_45.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1014_king.png","p":"TowerSkin1014_princess.png","ke":"","pe":""},{"n":"TowerSkin46","t":"Season 45","s":45,"id":"46","sc":"towerskin_season_45b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin46_king.png","p":"TowerSkin46_princess.png","ke":"","pe":""},{"n":"TowerSkin47","t":"Season 46","s":46,"id":"47","sc":"towerskin_season_46.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin47_king.png","p":"TowerSkin47_princess.png","ke":"","pe":""},{"n":"TowerSkin1015","t":"Season 46","s":46,"id":"1015","sc":"towerskin_season_46b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1015_king.png","p":"TowerSkin1015_princess.png","ke":"","pe":""},{"n":"TowerSkin48","t":"Season 47","s":47,"id":"48","sc":"towerskin_season_47.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin48_king.png","p":"TowerSkin48_princess.png","ke":"","pe":""},{"n":"TowerSkin1016","t":"Season 47","s":47,"id":"1016","sc":"towerskin_season_47b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1016_king.png","p":"TowerSkin1016_princess.png","ke":"","pe":""},{"n":"TowerSkin49","t":"Season 48","s":48,"id":"49","sc":"towerskin_season_48b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin49_king.png","p":"TowerSkin49_princess.png","ke":"","pe":""},{"n":"TowerSkin50","t":"Season 49","s":49,"id":"50","sc":"towerskin_season_49.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin50_king.png","p":"TowerSkin50_princess.png","ke":"","pe":""},{"n":"TowerSkin1017","t":"Season 48","s":48,"id":"1017","sc":"towerskin_season_48.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1017_king.png","p":"TowerSkin1017_princess.png","ke":"","pe":""},{"n":"TowerSkin51","t":"Season 50","s":50,"id":"51","sc":"towerskin_season_50.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin51_king.png","p":"TowerSkin51_princess.png","ke":"","pe":""},{"n":"TowerSkin1018","t":"Season 50","s":50,"id":"1018","sc":"towerskin_season_50b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1018_king.png","p":"TowerSkin1018_princess.png","ke":"","pe":""},{"n":"TowerSkin52","t":"Season 51","s":51,"id":"52","sc":"towerskin_season_51.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin52_king.png","p":"TowerSkin52_princess.png","ke":"","pe":""},{"n":"TowerSkin53","t":"Season 52","s":52,"id":"53","sc":"towerskin_season_52.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin53_king.png","p":"TowerSkin53_princess.png","ke":"","pe":""},{"n":"TowerSkin1019","t":"Season 52","s":52,"id":"1019","sc":"towerskin_season_52b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1019_king.png","p":"TowerSkin1019_princess.png","ke":"","pe":""},{"n":"TowerSkin54","t":"Season 53","s":53,"id":"54","sc":"towerskin_season_53.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin54_king.png","p":"TowerSkin54_princess.png","ke":"","pe":""},{"n":"TowerSkin1020","t":"Season 53","s":53,"id":"1020","sc":"towerskin_season_53b.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1020_king.png","p":"TowerSkin1020_princess.png","ke":"","pe":""},{"n":"TowerSkin55","t":"Season 54","s":54,"id":"55","sc":"towerskin_season_54.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin55_king.png","p":"TowerSkin55_princess.png","ke":"","pe":""},{"n":"TowerSkin1021","t":"Season 54 · naughty","s":54,"id":"1021","sc":"towerskin_season_54_naughty.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1021_king.png","p":"TowerSkin1021_princess.png","ke":"","pe":""},{"n":"TowerSkin1022","t":"Season 54 · nice","s":54,"id":"1022","sc":"towerskin_season_54_nice.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1022_king.png","p":"TowerSkin1022_princess.png","ke":"","pe":""},{"n":"TowerSkin56","t":"Season 55","s":55,"id":"56","sc":"towerskin_season_55.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin56_king.png","p":"TowerSkin56_princess.png","ke":"","pe":""},{"n":"TowerSkin57","t":"Season 56","s":56,"id":"57","sc":"towerskin_season_56.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin57_king.png","p":"TowerSkin57_princess.png","ke":"","pe":""},{"n":"TowerSkin1023","t":"Season 57 · castle","s":57,"id":"1023","sc":"towerskin_season_57_castle.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1023_king.png","p":"TowerSkin1023_princess.png","ke":"","pe":""},{"n":"TowerSkin58","t":"Season 57","s":57,"id":"58","sc":"towerskin_season_57.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin58_king.png","p":"TowerSkin58_princess.png","ke":"","pe":""},{"n":"TowerSkin59","t":"Season 58","s":58,"id":"59","sc":"towerskin_season_58.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin59_king.png","p":"TowerSkin59_princess.png","ke":"","pe":""},{"n":"TowerSkin1024","t":"Season 59 · squad","s":59,"id":"1024","sc":"towerskin_season_59_squad.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1024_king.png","p":"TowerSkin1024_princess.png","ke":"","pe":""},{"n":"TowerSkin60","t":"Season 59","s":59,"id":"60","sc":"towerskin_season_59.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin60_king.png","p":"TowerSkin60_princess.png","ke":"","pe":""},{"n":"TowerSkin1026","t":"Season 60 · mines","s":60,"id":"1026","sc":"towerskin_season_60_mines.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1026_king.png","p":"TowerSkin1026_princess.png","ke":"","pe":""},{"n":"TowerSkin61","t":"Season 60 · matriarch","s":60,"id":"61","sc":"towerskin_season_60_matriarch.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin61_king.png","p":"TowerSkin61_princess.png","ke":"","pe":""},{"n":"TowerSkin1025","t":"Season 59 · squad Castle","s":59,"id":"1025","sc":"towerskin_season_59_squadCastle.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1025_king.png","p":"TowerSkin1025_princess.png","ke":"","pe":""},{"n":"TowerSkin62","t":"Season 61","s":61,"id":"62","sc":"towerskin_season_61.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin62_king.png","p":"TowerSkin62_princess.png","ke":"","pe":""},{"n":"TowerSkin1027","t":"Season 61 · kingshead","s":61,"id":"1027","sc":"towerskin_season_61_kingshead.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1027_king.png","p":"TowerSkin1027_princess.png","ke":"","pe":""},{"n":"TowerSkin63","t":"Season 62 · chillbeach","s":62,"id":"63","sc":"towerskin_season_62_chillbeach.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin63_king.png","p":"TowerSkin63_princess.png","ke":"","pe":""},{"n":"TowerSkin1028","t":"Season 62 · goblinsdummy","s":62,"id":"1028","sc":"towerskin_season_62_goblinsdummy.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1028_king.png","p":"TowerSkin1028_princess.png","ke":"","pe":""},{"n":"TowerSkin64","t":"Season 63 · ultimateclash","s":63,"id":"64","sc":"towerskin_season_63_ultimateclash.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin64_king.png","p":"TowerSkin64_princess.png","ke":"","pe":""},{"n":"TowerSkin65","t":"Season 64 · halloween2024","s":64,"id":"65","sc":"towerskin_season_64_halloween2024.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin65_king.png","p":"TowerSkin65_princess.png","ke":"","pe":""},{"n":"TowerSkin1029","t":"Season 64 · fanmade","s":64,"id":"1029","sc":"towerskin_season_64_fanmade.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1029_king.png","p":"TowerSkin1029_princess.png","ke":"","pe":""},{"n":"TowerSkin66","t":"Season 65 · sheriff","s":65,"id":"66","sc":"towerskin_season_65_sheriff.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin66_king.png","p":"TowerSkin66_princess.png","ke":"","pe":""},{"n":"TowerSkin1030","t":"Season 65 · trainingcamp","s":65,"id":"1030","sc":"towerskin_season_65_trainingcamp.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1030_king.png","p":"TowerSkin1030_princess.png","ke":"","pe":""},{"n":"TowerSkin67","t":"Season 66 · cosychristmas","s":66,"id":"67","sc":"towerskin_season_66_cosychristmas.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin67_king.png","p":"TowerSkin67_princess.png","ke":"","pe":""},{"n":"TowerSkin1031","t":"Season 66 · snowball","s":66,"id":"1031","sc":"towerskin_season_66_snowball.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1031_king.png","p":"TowerSkin1031_princess.png","ke":"","pe":""},{"n":"TowerSkin68","t":"Season 67 · rune Giant","s":67,"id":"68","sc":"towerskin_season_67_runeGiant.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin68_king.png","p":"TowerSkin68_princess.png","ke":"","pe":""},{"n":"TowerSkin69","t":"Season 68 · berserkerlove","s":68,"id":"69","sc":"towerskin_season_68_berserkerlove.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin69_king.png","p":"TowerSkin69_princess.png","ke":"","pe":""},{"n":"TowerSkin1032","t":"Season 68 · lumberefuge","s":68,"id":"1032","sc":"towerskin_season_68_lumberefuge.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1032_king.png","p":"TowerSkin1032_princess.png","ke":"","pe":""},{"n":"TowerSkin70","t":"Season 69 · crown","s":69,"id":"70","sc":"towerskin_season_69_crown.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin70_king.png","p":"TowerSkin70_princess.png","ke":"","pe":""},{"n":"TowerSkin1033","t":"Season 69 · newbasic","s":69,"id":"1033","sc":"towerskin_season_69_newbasic.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1033_king.png","p":"TowerSkin1033_princess.png","ke":"","pe":""},{"n":"TowerSkin71","t":"Season 70 · royaldelivery","s":70,"id":"71","sc":"towerskin_season_70_royaldelivery.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin71_king.png","p":"TowerSkin71_princess.png","ke":"","pe":""},{"n":"TowerSkin1034","t":"Season 70 · treeband","s":70,"id":"1034","sc":"towerskin_season_70_treeband.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1034_king.png","p":"TowerSkin1034_princess.png","ke":"","pe":""},{"n":"TowerSkin1035","t":"Season 70 · hideout","s":70,"id":"1035","sc":"towerskin_season_70_hideout.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1035_king.png","p":"TowerSkin1035_princess.png","ke":"","pe":""},{"n":"TowerSkin72","t":"Season 71 · graveyard Kid","s":71,"id":"72","sc":"towerskin_season_71_graveyardKid.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin72_king.png","p":"TowerSkin72_princess.png","ke":"","pe":""},{"n":"TowerSkin1036","t":"Season 71 · barebones","s":71,"id":"1036","sc":"towerskin_season_71_barebones.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1036_king.png","p":"TowerSkin1036_princess.png","ke":"","pe":""},{"n":"TowerSkin1037","t":"Season 71 · barebones Evo","s":71,"id":"1037","sc":"towerskin_season_71_barebonesEvo.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1037_king.png","p":"TowerSkin1037_princess.png","ke":"","pe":""},{"n":"TowerSkin73","t":"Season 72 · infernodragon","s":72,"id":"73","sc":"towerskin_season_72_infernodragon.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin73_king.png","p":"TowerSkin73_princess.png","ke":"","pe":""},{"n":"TowerSkin74","t":"Season 73 · spiritempress","s":73,"id":"74","sc":"towerskin_season_73_spiritempress.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin74_king.png","p":"TowerSkin74_princess.png","ke":"","pe":""},{"n":"TowerSkin75","t":"Season 74 · furnace","s":74,"id":"75","sc":"towerskin_season_74_furnace.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin75_king.png","p":"TowerSkin75_princess.png","ke":"","pe":""},{"n":"TowerSkin1038","t":"Season 75 · druid","s":75,"id":"1038","sc":"towerskin_season_75_druid.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1038_king.png","p":"TowerSkin1038_princess.png","ke":"","pe":""},{"n":"TowerSkin76","t":"Season 75 · dragonest","s":75,"id":"76","sc":"towerskin_season_75_dragonest.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin76_king.png","p":"TowerSkin76_princess.png","ke":"","pe":""},{"n":"TowerSkin1039","t":"Season 75 · bandito","s":75,"id":"1039","sc":"towerskin_season_75_bandito.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1039_king.png","p":"TowerSkin1039_princess.png","ke":"","pe":""},{"n":"TowerSkin1040","t":"Season 75 · ballistic","s":75,"id":"1040","sc":"towerskin_season_75_ballistic.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1040_king.png","p":"TowerSkin1040_princess.png","ke":"","pe":""},{"n":"TowerSkin1041","t":"Season 75 · dragonegg","s":75,"id":"1041","sc":"towerskin_season_75_dragonegg.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1041_king.png","p":"TowerSkin1041_princess.png","ke":"","pe":""},{"n":"TowerSkin77","t":"Season 76 · rockgig","s":76,"id":"77","sc":"towerskin_season_76_rockgig.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin77_king.png","p":"TowerSkin77_princess.png","ke":"","pe":""},{"n":"TowerSkin1043","t":"Season 76 · beatingdeath","s":76,"id":"1043","sc":"towerskin_season_76_beatingdeath.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1043_king.png","p":"TowerSkin1043_princess.png","ke":"","pe":""},{"n":"TowerSkin1042","t":"Season 76 · ghostlychills","s":76,"id":"1042","sc":"towerskin_season_76_ghostlychills.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1042_king.png","p":"TowerSkin1042_princess.png","ke":"","pe":""},{"n":"TowerSkin78","t":"Season 78 · hogzeppelin","s":78,"id":"78","sc":"towerskin_season_78_hogzeppelin.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin78_king.png","p":"TowerSkin78_princess.png","ke":"","pe":""},{"n":"TowerSkin1044","t":"Season 77 · rawhogs","s":77,"id":"1044","sc":"towerskin_season_77_rawhogs.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1044_king.png","p":"TowerSkin1044_princess.png","ke":"","pe":""},{"n":"TowerSkin79","t":"Season 78 · goldenheroes","s":78,"id":"79","sc":"towerskin_season_78_goldenheroes.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin79_king.png","p":"TowerSkin79_princess.png","ke":"","pe":""},{"n":"TowerSkin1045","t":"Season 78 · goldengift","s":78,"id":"1045","sc":"towerskin_season_78_goldengift.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1045_king.png","p":"TowerSkin1045_princess.png","ke":"","pe":""},{"n":"TowerSkin80","t":"Season 79 · icefire","s":79,"id":"80","sc":"towerskin_season_79_icefire.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin80_king.png","p":"TowerSkin80_princess.png","ke":"","pe":""},{"n":"TowerSkin1046","t":"Season 79 · elementalduality","s":79,"id":"1046","sc":"towerskin_season_79_elementalduality.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1046_king.png","p":"TowerSkin1046_princess.png","ke":"","pe":""},{"n":"TowerSkin1047","t":"Season 79 · heropantheon","s":79,"id":"1047","sc":"towerskin_season_79_heropantheon.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1047_king.png","p":"TowerSkin1047_princess.png","ke":"","pe":""},{"n":"TowerSkin81","t":"Season 80 · lovetemple","s":80,"id":"81","sc":"towerskin_season_80_lovetemple.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin81_king.png","p":"TowerSkin81_princess.png","ke":"","pe":""},{"n":"TowerSkin1048","t":"Season 80 · gothiclove","s":80,"id":"1048","sc":"towerskin_season_80_gothiclove.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1048_king.png","p":"TowerSkin1048_princess.png","ke":"","pe":""},{"n":"TowerSkin82","t":"Season 81 · 10thbirthday","s":81,"id":"82","sc":"towerskin_season_81_10thbirthday.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin82_king.png","p":"TowerSkin82_princess.png","ke":"","pe":""},{"n":"TowerSkin1049","t":"Season 81 · joust","s":81,"id":"1049","sc":"towerskin_season_81_joust.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1049_king.png","p":"TowerSkin1049_princess.png","ke":"","pe":""},{"n":"TowerSkin1050","t":"Season 82 · summer Vibe","s":82,"id":"1050","sc":"towerskin_season_82_summerVibe.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1050_king.png","p":"TowerSkin1050_princess.png","ke":"","pe":""},{"n":"TowerSkin83","t":"Season 82 · warballoon","s":82,"id":"83","sc":"towerskin_season_82_warballoon.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin83_king.png","p":"TowerSkin83_princess.png","ke":"","pe":""},{"n":"TowerSkin1051","t":"Season 82 · funnyballoon","s":82,"id":"1051","sc":"towerskin_season_82_funnyballoon.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1051_king.png","p":"TowerSkin1051_princess.png","ke":"","pe":""},{"n":"TowerSkin84","t":"Season 83 · darkregal","s":83,"id":"84","sc":"towerskin_season_83_darkregal.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin84_king.png","p":"TowerSkin84_princess.png","ke":"","pe":""},{"n":"TowerSkin1052","t":"Season 83 · strike","s":83,"id":"1052","sc":"towerskin_season_83_strike.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1052_king.png","p":"TowerSkin1052_princess.png","ke":"","pe":""},{"n":"TowerSkin1053","t":"Season 84 · darkestdungeon","s":84,"id":"1053","sc":"towerskin_season_84_darkestdungeon.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1053_king.png","p":"TowerSkin1053_princess.png","ke":"","pe":""},{"n":"TowerSkin1054","t":"Season 85 · darkprince","s":85,"id":"1054","sc":"towerskin_season_85_darkprince.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1054_king.png","p":"TowerSkin1054_princess.png","ke":"","pe":""},{"n":"TowerSkin85","t":"Season 84 · frozenlair","s":84,"id":"85","sc":"towerskin_season_84_frozenlair.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin85_king.png","p":"TowerSkin85_princess.png","ke":"","pe":""},{"n":"TowerSkin1055","t":"Season 84 · snowfortress","s":84,"id":"1055","sc":"towerskin_season_84_snowfortress.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1055_king.png","p":"TowerSkin1055_princess.png","ke":"","pe":""},{"n":"TowerSkin1056","t":"Season 84 · football","s":84,"id":"1056","sc":"towerskin_season_84_football.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1056_king.png","p":"TowerSkin1056_princess.png","ke":"","pe":""},{"n":"TowerSkin1057","t":"Season 84 · collection","s":84,"id":"1057","sc":"towerskin_season_84_collection.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1057_king.png","p":"TowerSkin1057_princess.png","ke":"","pe":""},{"n":"TowerSkin1058","t":"Season 85 · ronintemple","s":85,"id":"1058","sc":"towerskin_season_85_ronintemple.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1058_king.png","p":"TowerSkin1058_princess.png","ke":"","pe":""},{"n":"TowerSkin1059","t":"Season 85 · ancientjapan","s":85,"id":"1059","sc":"towerskin_season_85_ancientjapan.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1059_king.png","p":"TowerSkin1059_princess.png","ke":"","pe":""},{"n":"TowerSkin1060","t":"Season 85 · hogmountain","s":85,"id":"1060","sc":"towerskin_season_85_hogmountain.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1060_king.png","p":"TowerSkin1060_princess.png","ke":"","pe":""},{"n":"TowerSkin86","t":"Season 85 · echomonk","s":85,"id":"86","sc":"towerskin_season_85_echomonk.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin86_king.png","p":"TowerSkin86_princess.png","ke":"","pe":""},{"n":"TowerSkin1061","t":"Season 86 · vikingrune","s":86,"id":"1061","sc":"towerskin_season_86_vikingrune.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1061_king.png","p":"TowerSkin1061_princess.png","ke":"","pe":""},{"n":"TowerSkin87","t":"Season 86 · viking","s":86,"id":"87","sc":"towerskin_season_86_viking.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin87_king.png","p":"TowerSkin87_princess.png","ke":"","pe":""},{"n":"TowerSkin88","t":"Season 87 · miniongiant","s":87,"id":"88","sc":"towerskin_season_87_miniongiant.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin88_king.png","p":"TowerSkin88_princess.png","ke":"","pe":""},{"n":"TowerSkin1062","t":"Season 87 · minionacademy","s":87,"id":"1062","sc":"towerskin_season_87_minionacademy.sc","col":true,"shop":false,"hid":false,"k":"TowerSkin1062_king.png","p":"TowerSkin1062_princess.png","ke":"","pe":""}]};
+const K = META.skins;
+const IMG = META.css;
+
+const TOWER = '<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 21V9l2-2V4h2v2h4V4h2v3l2 2v12M10 21v-4a2 2 0 0 1 4 0v4"/></svg>';
+
+(function(){
+  const col = K.filter(x=>x.col).length;
+  const shop = K.filter(x=>x.shop).length;
+  const seas = new Set(K.filter(x=>x.s).map(x=>x.s));
+  const both = K.filter(x=>x.k&&x.p).length;
+  document.getElementById('lead').textContent =
+    `按游戏内塔皮肤数据表 tower_skin_sets.csv 整理的 ${K.length} 套塔皮肤，全部已用游戏内精灵文件重建出官方图像，`
+    + `其中 ${both} 套国王塔 + 公主塔双图齐全、${col} 套可收集。可按赛季筛选。`;
+  const S=[[K.length,"皮肤总数"],[both,"双塔图齐全"],[col,"可收集"],[seas.size,"涉及赛季"],[shop,"可上架商店"]];
+  document.getElementById('stats').innerHTML = S.map(([v,l],i)=>
+    `<div class="stat${i===1?' warn':''}"><b>${v}</b><span>${l}</span></div>`).join('');
+  const drop = META.droppedCount | 0;
+  if(drop) document.getElementById('f-drop').textContent =
+    `另有 ${drop} 套因素材缺失未能渲染（${META.dropped.slice(0,4).map(esc).join("、")}${drop>4?" 等":""}）未列入本页。`;
+})();
+
+const seaCount={};
+K.forEach(x=>{ if(x.s) seaCount[x.s]=(seaCount[x.s]||0)+1; });
+document.getElementById('sea').innerHTML = '<option value="">全部赛季</option>' +
+  Object.keys(seaCount).sort((a,b)=>a-b).map(s=>`<option value="${s}">Season ${s} (${seaCount[s]})</option>`).join('');
+
+const S = {q:"", sea:"", sort:"idx", col:false, shop:false, hid:false};
+function match(x){
+  if(S.sea && String(x.s||"")!==S.sea) return false;
+  if(S.col && !x.col) return false;
+  if(S.shop && !x.shop) return false;
+  if(!S.hid && x.hid) return false;
+  if(S.q){
+    const hay=(x.t+" "+x.n+" "+x.sc+" "+(x.s?"season "+x.s:"")+" "+x.id).toLowerCase();
+    if(!S.q.toLowerCase().split(/\s+/).filter(Boolean).every(w=>hay.includes(w))) return false;
+  }
+  return true;
+}
+function sortList(a,b){
+  if(S.sort==="name") return (a.t||a.n).localeCompare(b.t||b.n);
+  if(S.sort==="season") return (a.s||99)-(b.s||99) || String(a.id).localeCompare(String(b.id));
+  return idx(a)-idx(b);
+}
+const IDX = new Map(K.map((x,i)=>[x,i]));
+function idx(x){ return IDX.get(x); }
+
+const grid=document.getElementById('grid'), countEl=document.getElementById('count'), emptyEl=document.getElementById('empty');
+let VIEW=[];
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
+function duo(x){
+  if(x.k&&x.p) return `<img class="k" loading="lazy" decoding="async" src="${IMG}${x.k}" alt="${esc(x.t)} 国王塔"><img class="p" loading="lazy" decoding="async" src="${IMG}${x.p}" alt="公主塔">`;
+  const src=x.k||x.p;
+  return `<div class="one"><img loading="lazy" decoding="async" src="${IMG}${src}" alt="${esc(x.t)}"></div>`;
+}
+function card(x){
+  const badges =
+    (x.col?`<div class="badge" title="Collectable">可收集</div>`:"")+
+    (x.shop?`<div class="badge shop" title="AvailableForShopOffer">可上架</div>`:"")+
+    (x.hid?`<div class="badge hide" title="HiddenFromClient">隐藏</div>`:"");
+  return `<article class="card" tabindex="0" data-n="${esc(x.n)}">
+    <div class="stripe" style="--hc:${x.s?'#1f9e6a':'#8792ad'}"></div>
+    <div class="thumb">${badges}${duo(x)}</div>
+    <div class="cbody">
+      <div class="cname">${esc(x.t||x.n)}</div>
+      <div class="cmeta">
+        ${x.s?`<span class="fam">Season ${x.s}</span>`:`<span class="fam" style="background:#f1f4fb;color:#4a5570">基础</span>`}
+        <span class="yr">Id ${esc(x.id)}</span>
+      </div>
+    </div>
+  </article>`;
+}
+function render(){
+  VIEW=K.filter(match).sort(sortList);
+  countEl.innerHTML=`显示 <b>${VIEW.length}</b> / ${K.length} 套塔皮肤`;
+  emptyEl.style.display=VIEW.length?"none":"block";
+  grid.innerHTML=VIEW.map(card).join('');
+}
+grid.addEventListener('click',ev=>{
+  const c=ev.target.closest('.card'); if(!c) return;
+  openBy(VIEW.findIndex(x=>x.n===c.dataset.n));
+});
+grid.addEventListener('keydown',ev=>{
+  if(ev.key!=="Enter"&&ev.key!==" ") return;
+  const c=ev.target.closest('.card'); if(!c) return;
+  ev.preventDefault(); openBy(VIEW.findIndex(x=>x.n===c.dataset.n));
+});
+
+const lb=document.getElementById('lb');
+let cur=-1;
+function openBy(i){
+  if(i<0||i>=VIEW.length) return;
+  cur=i; const x=VIEW[i];
+  document.getElementById('lb-vis').innerHTML = (x.k||x.p)
+    ? `${x.k?`<img class="k" src="${IMG}${x.k}" alt="国王塔">`:""}${x.p?`<img class="p" src="${IMG}${x.p}" alt="公主塔">`:""}`
+    : `<div class="none">${TOWER}<div style="margin-top:8px">素材未收录</div></div>`;
+  const tgs=[];
+  if(x.col) tgs.push('<span class="tg g">可收集</span>');
+  if(x.shop) tgs.push('<span class="tg b">可上架商店</span>');
+  if(x.hid) tgs.push('<span class="tg">对客户端隐藏</span>');
+  if(x.s) tgs.push(`<span class="tg">Season ${x.s}</span>`);
+  document.getElementById('lb-info').innerHTML=`
+    <h2>${esc(x.t||x.n)}</h2>
+    <div class="lb-sub">${x.s?"Season "+x.s+" · ":""}数据名 ${esc(x.n)}</div>
+    <div class="lb-tags">${tgs.join('')}</div>
+    <dl>
+      <dt>皮肤 Id</dt><dd>${esc(x.id)}</dd>
+      <dt>精灵文件</dt><dd>${esc(x.sc)}</dd>
+      <dt>国王塔导出</dt><dd>${esc(x.ke||"—")}</dd>
+      <dt>公主塔导出</dt><dd>${esc(x.pe||"—")}</dd>
+    </dl>
+    ${(!x.k||!x.p)?`<div class="lb-tags" style="margin-top:14px"><span class="tg" style="background:#fff8e6;color:#7a5a10">该精灵内未找到${!x.k?"国王塔":""}${(!x.k&&!x.p)?"、":""}${!x.p?"公主塔":""}导出，图省略</span></div>`:""}
+  `;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+lb.addEventListener('click',ev=>{ if(ev.target.hasAttribute('data-close')) close(); });
+document.getElementById('prev').onclick=()=>openBy(cur-1);
+document.getElementById('next').onclick=()=>openBy(cur+1);
+document.addEventListener('keydown',ev=>{
+  if(!lb.classList.contains('open')) return;
+  if(ev.key==="Escape") close();
+  if(ev.key==="ArrowLeft") openBy(cur-1);
+  if(ev.key==="ArrowRight") openBy(cur+1);
+});
+
+let timer;
+document.getElementById('q').addEventListener('input',ev=>{
+  clearTimeout(timer); const v=ev.target.value;
+  timer=setTimeout(()=>{S.q=v.trim(); render();},120);
+});
+document.getElementById('sea').onchange=ev=>{S.sea=ev.target.value; render();};
+document.getElementById('sort').onchange=ev=>{S.sort=ev.target.value; render();};
+function tgl(id,key){
+  const el=document.getElementById(id);
+  el.onclick=()=>{S[key]=!S[key]; el.classList.toggle('on',S[key]); render();};
+}
+tgl('t-col','col'); tgl('t-shop','shop'); tgl('t-hid','hid');
+document.getElementById('reset').onclick=()=>{
+  S.q="";S.sea="";S.sort="idx";S.col=false;S.shop=false;S.hid=false;
+  document.getElementById('q').value="";document.getElementById('sea').value="";document.getElementById('sort').value="idx";
+  document.querySelectorAll('.tgl.on').forEach(el=>el.classList.remove('on'));
+  render();
+};
+render();
+</script>
+</body>
+</html>
