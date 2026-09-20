@@ -157,6 +157,7 @@ function applyI18n(){
   var z = document.getElementById('l-zh'), e2 = document.getElementById('l-en');
   if(z) z.classList.toggle('on', window.LANG !== 'en');
   if(e2) e2.classList.toggle('on', window.LANG === 'en');
+  if(typeof buildSeaOptions === 'function') buildSeaOptions();
   if(typeof render === 'function') render();
 }
 function setLang(l){
@@ -259,8 +260,17 @@ const TOWER = '<svg width="38" height="38" viewBox="0 0 24 24" fill="none" strok
 
 const seaCount={};
 K.forEach(x=>{ if(x.s) seaCount[x.s]=(seaCount[x.s]||0)+1; });
-document.getElementById('sea').innerHTML = '<option value="">'+T("seaAll")+'</option>' +
-  Object.keys(seaCount).sort((a,b)=>a-b).map(s=>`<option value="${s}">Season ${s} (${seaCount[s]})</option>`).join('');
+/* 赛季名显示：中文模式 → 第 12 赛季，英文模式 → Season 12。
+   option 的 value 始终是赛季号，筛选逻辑不受影响。 */
+function seasonLabel(s){ return window.LANG === 'en' ? `Season ${s}` : `第 ${s} 赛季`; }
+const seaSel=document.getElementById('sea');
+function buildSeaOptions(){
+  const cur=seaSel.value;                 // 重建前记住选中项，切语言不丢筛选
+  seaSel.innerHTML = '<option value="">'+T("seaAll")+'</option>' +
+    Object.keys(seaCount).sort((a,b)=>a-b).map(s=>`<option value="${esc(s)}">${esc(seasonLabel(s))} (${seaCount[s]})</option>`).join('');
+  seaSel.value=cur;
+}
+buildSeaOptions();
 
 const S = {q:"", sea:"", sort:"idx", col:false, shop:false, hid:false};
 function match(x){
@@ -301,7 +311,7 @@ function card(x){
     <div class="cbody">
       <div class="cname">${esc(x.t||x.n)}</div>
       <div class="cmeta">
-        ${x.s?`<span class="fam">Season ${x.s}</span>`:`<span class="fam" style="background:#f1f4fb;color:#4a5570">${T("base")}</span>`}
+        ${x.s?`<span class="fam">${esc(seasonLabel(x.s))}</span>`:`<span class="fam" style="background:#f1f4fb;color:#4a5570">${T("base")}</span>`}
         <span class="yr">Id ${esc(x.id)}</span>
       </div>
     </div>
@@ -335,10 +345,10 @@ function openBy(i){
   if(x.col) tgs.push('<span class="tg g">'+T("tgCol")+'</span>');
   if(x.shop) tgs.push('<span class="tg b">'+T("tgShop")+'</span>');
   if(x.hid) tgs.push('<span class="tg">'+T("tgHidden")+'</span>');
-  if(x.s) tgs.push(`<span class="tg">Season ${x.s}</span>`);
+  if(x.s) tgs.push(`<span class="tg">${esc(seasonLabel(x.s))}</span>`);
   document.getElementById('lb-info').innerHTML=`
     <h2>${esc(x.t||x.n)}</h2>
-    <div class="lb-sub">${x.s?"Season "+x.s+" · ":""}${T("dataName")} ${esc(x.n)}</div>
+    <div class="lb-sub">${x.s?esc(seasonLabel(x.s))+" · ":""}${T("dataName")} ${esc(x.n)}</div>
     <div class="lb-tags">${tgs.join('')}</div>
     <dl>
       <dt>${T("skinId")}</dt><dd>${esc(x.id)}</dd>
