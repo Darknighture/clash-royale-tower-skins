@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>皇室战争 塔皮图鉴 · Clash Royale Tower Skin Gallery</title>
+<title data-i18n="title">皇室战争 塔皮图鉴 · Clash Royale Tower Skin Gallery</title>
 <style>
 :root{
   --bg:#f4f6fb; --ink:#131a2e; --ink2:#4a5570; --ink3:#8792ad;
@@ -115,17 +115,76 @@ dd{margin:0;color:var(--ink);word-break:break-all;font-family:ui-monospace,SFMon
 footer{border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px;padding:22px 0 40px}
 footer code{background:#eef1f8;padding:1.5px 5px;border-radius:5px;font-size:12px;color:var(--ink2)}
 .empty{padding:60px 0;text-align:center;color:var(--ink3)}
+.grp{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.grp .tgl{border:none;border-radius:0;font-size:13px;padding:9px 11px}
+.grp .tgl + .tgl{border-left:1px solid var(--line)}
+.grp .tgl.on{font-weight:600}
 </style>
 </head>
 <body>
 
+<script>
+/* ---- 中 / EN 语言切换（在页面主脚本之前加载）---- */
+window.I18N = {"title":{"zh":"皇室战争 塔皮图鉴 · Clash Royale Tower Skin Gallery","en":"Clash Royale Tower Skin Gallery · All Tower Skins"},"h1":{"zh":"皇室战争 <em>全部塔皮</em> 图鉴","en":"Clash Royale <em>All Tower Skins</em> Gallery"},"hint":{"zh":"↓ 向下滚动浏览 · 每张卡片为国王塔 + 公主塔（蓝方视角）· 点击查看大图","en":"↓ Scroll to browse · each card shows King Tower + Princess Tower (blue side) · click for the large image"},"search":{"zh":"搜索名称 / 赛季 / 资源文件名…","en":"Search name / season / asset file…"},"seaAll":{"zh":"全部赛季","en":"All seasons"},"sortIdx":{"zh":"按皮肤 Id","en":"By skin ID"},"sortSeason":{"zh":"按赛季分组","en":"Group by season"},"sortName":{"zh":"名称 A → Z","en":"Name A → Z"},"tCol":{"zh":"可收集","en":"Collectable"},"tColTip":{"zh":"仅看可收集（Collectable）","en":"Collectable only (Collectable)"},"tShop":{"zh":"可上架","en":"In shop"},"tShopTip":{"zh":"仅看可上架商店（AvailableForShopOffer）","en":"Available for shop offers only (AvailableForShopOffer)"},"tHid":{"zh":"含隐藏","en":"Hidden"},"tHidTip":{"zh":"显示对客户端隐藏的条目","en":"Show entries hidden from the client"},"reset":{"zh":"重置","en":"Reset"},"langLabel":{"zh":"语言","en":"Language"},"tipNote":{"zh":"塔皮收录截止到2026年6月。","en":"Tower skins collected up to June 2026."},"empty":{"zh":"没有符合条件的塔皮肤，试试放宽筛选条件。","en":"No tower skins match — try loosening the filters."},"prev":{"zh":"上一个 (←)","en":"Previous (←)"},"next":{"zh":"下一个 (→)","en":"Next (→)"},"close":{"zh":"关闭 (Esc)","en":"Close (Esc)"},"stTotal":{"zh":"皮肤总数","en":"Skins"},"stBoth":{"zh":"双塔图齐全","en":"Both towers"},"stCol":{"zh":"可收集","en":"Collectable"},"stSeasons":{"zh":"涉及赛季","en":"Seasons covered"},"stShop":{"zh":"可上架商店","en":"In shop"},"dropNote":{"zh":"另有 {1} 套因素材缺失未能渲染（{2}{3}）未列入本页。","en":"Another {1} skins could not be rendered (missing assets: {2}{3}) and are not listed here."},"etcMore":{"zh":" 等","en":" etc."},"kingTower":{"zh":"国王塔","en":"King Tower"},"prinTower":{"zh":"公主塔","en":"Princess Tower"},"sep":{"zh":"、","en":", "},"col":{"zh":"可收集","en":"Collectable"},"shop":{"zh":"可上架","en":"In shop"},"hidden":{"zh":"隐藏","en":"Hidden"},"base":{"zh":"基础","en":"Base"},"countSkins":{"zh":"显示 <b>{1}</b> / {2} 套塔皮肤","en":"Showing <b>{1}</b> / {2} tower skins"},"noAsset":{"zh":"素材未收录","en":"Assets not available"},"tgCol":{"zh":"可收集","en":"Collectable"},"tgShop":{"zh":"可上架商店","en":"Available in shop"},"tgHidden":{"zh":"对客户端隐藏","en":"Hidden from client"},"dataName":{"zh":"数据名","en":"Data name"},"skinId":{"zh":"皮肤 Id","en":"Skin ID"},"spriteFile":{"zh":"精灵文件","en":"Sprite file"},"kingExport":{"zh":"国王塔导出","en":"King Tower export"},"prinExport":{"zh":"公主塔导出","en":"Princess Tower export"},"missingExport":{"zh":"该精灵内未找到{1}{2}{3}导出，图省略","en":"No {1}{2}{3} export found in this sprite — image omitted"}};
+window.LANG = (function(){ try{ return localStorage.getItem('cr-lang')==='en'?'en':'zh'; }catch(e){ return 'zh'; } })();
+window.T = function(k){
+  var e = window.I18N[k]; if(!e) return '';
+  var s = (window.LANG === 'en' && e.en) ? e.en : e.zh;
+  if(s == null) s = '';
+  for(var i = 1; i < arguments.length; i++){
+    s = s.split('{' + i + '}').join(arguments[i]);
+  }
+  return s;
+};
+function applyI18n(){
+  document.title = T('title');
+  document.documentElement.lang = window.LANG === 'en' ? 'en' : 'zh-CN';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    el.textContent = T(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+    el.innerHTML = T(el.getAttribute('data-i18n-html'));
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    el.setAttribute('placeholder', T(el.getAttribute('data-i18n-ph')));
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach(function(el){
+    el.setAttribute('title', T(el.getAttribute('data-i18n-title')));
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+    el.setAttribute('aria-label', T(el.getAttribute('data-i18n-aria')));
+  });
+  var z = document.getElementById('l-zh'), e2 = document.getElementById('l-en');
+  if(z) z.classList.toggle('on', window.LANG !== 'en');
+  if(e2) e2.classList.toggle('on', window.LANG === 'en');
+  if(typeof render === 'function') render();
+}
+function setLang(l){
+  window.LANG = l;
+  try{ localStorage.setItem('cr-lang', l); }catch(e){}
+  var lbEl = document.getElementById('lb');
+  var wasOpen = lbEl && lbEl.classList.contains('open');
+  applyI18n();
+  if(wasOpen){
+    try{ if(typeof cur !== 'undefined' && cur >= 0 && typeof openBy === 'function') openBy(cur); }catch(e){}
+  }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var z = document.getElementById('l-zh'), e2 = document.getElementById('l-en');
+  if(z) z.addEventListener('click', function(){ setLang('zh'); });
+  if(e2) e2.addEventListener('click', function(){ setLang('en'); });
+  applyI18n();
+});
+</script>
+
+
 <header class="hero">
   <div class="wrap">
     <div class="chip-top">CLASH ROYALE · <b>TOWER SKIN GALLERY</b></div>
-    <h1>皇室战争 <em>全部塔皮</em> 图鉴</h1>
+    <h1 data-i18n-html="h1">皇室战争 <em>全部塔皮</em> 图鉴</h1>
     <p class="lead" id="lead"></p>
     <div class="stats" id="stats"></div>
-    <div class="hint">↓ 向下滚动浏览 · 每张卡片为国王塔 + 公主塔（蓝方视角）· 点击查看大图</div>
+    <div class="hint" data-i18n="hint">↓ 向下滚动浏览 · 每张卡片为国王塔 + 公主塔（蓝方视角）· 点击查看大图</div>
   </div>
 </header>
 
@@ -133,28 +192,29 @@ footer code{background:#eef1f8;padding:1.5px 5px;border-radius:5px;font-size:12p
   <div class="wrap">
     <label class="search">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#131a2e" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
-      <input id="q" type="search" placeholder="搜索名称 / 赛季 / 资源文件名…" autocomplete="off">
+      <input id="q" type="search" data-i18n-ph="search" placeholder="搜索名称 / 赛季 / 资源文件名…" autocomplete="off">
     </label>
-    <select id="sea"><option value="">全部赛季</option></select>
+    <select id="sea"><option value="" data-i18n="seaAll">全部赛季</option></select>
     <select id="sort">
-      <option value="idx">按皮肤 Id</option>
-      <option value="season">按赛季分组</option>
-      <option value="name">名称 A → Z</option>
+      <option value="idx" data-i18n="sortIdx">按皮肤 Id</option>
+      <option value="season" data-i18n="sortSeason">按赛季分组</option>
+      <option value="name" data-i18n="sortName">名称 A → Z</option>
     </select>
-    <button class="tgl" id="t-col" title="仅看可收集（Collectable）">可收集</button>
-    <button class="tgl gold" id="t-shop" title="仅看可上架商店（AvailableForShopOffer）">可上架</button>
-    <button class="tgl" id="t-hid" title="显示对客户端隐藏的条目">含隐藏</button>
-    <button class="clear" id="reset">重置</button>
+    <button class="tgl" id="t-col" data-i18n="tCol" data-i18n-title="tColTip" title="仅看可收集（Collectable）">可收集</button>
+    <button class="tgl gold" id="t-shop" data-i18n="tShop" data-i18n-title="tShopTip" title="仅看可上架商店（AvailableForShopOffer）">可上架</button>
+    <button class="tgl" id="t-hid" data-i18n="tHid" data-i18n-title="tHidTip" title="显示对客户端隐藏的条目">含隐藏</button>
+    <div class="grp" role="group" data-i18n-aria="langLabel"><button class="tgl" id="l-zh" title="中文">中</button><button class="tgl" id="l-en" title="English">EN</button></div>
+    <button class="clear" id="reset" data-i18n="reset">重置</button>
   </div>
 </nav>
 
 <main class="wrap">
   <div class="bar">
     <div class="n" id="count"></div>
-    <div class="tip">塔皮收录截止到2026年6月。</div>
+    <div class="tip" data-i18n="tipNote">塔皮收录截止到2026年6月。</div>
   </div>
   <div class="grid" id="grid"></div>
-  <div class="empty" id="empty" style="display:none">没有符合条件的塔皮肤，试试放宽筛选条件。</div>
+  <div class="empty" id="empty" data-i18n="empty" style="display:none">没有符合条件的塔皮肤，试试放宽筛选条件。</div>
 </main>
 
 <footer class="wrap">
@@ -166,9 +226,9 @@ footer code{background:#eef1f8;padding:1.5px 5px;border-radius:5px;font-size:12p
   <div class="lb-bg" data-close></div>
   <div class="lb-panel" role="dialog" aria-modal="true">
     <div class="lb-nav">
-      <button id="prev" title="上一个 (←)">‹</button>
-      <button id="next" title="下一个 (→)">›</button>
-      <button data-close title="关闭 (Esc)">✕</button>
+      <button id="prev" data-i18n-title="prev" title="上一个 (←)">‹</button>
+      <button id="next" data-i18n-title="next" title="下一个 (→)">›</button>
+      <button data-close data-i18n-title="close" title="关闭 (Esc)">✕</button>
     </div>
     <div class="lb-vis" id="lb-vis"></div>
     <div class="lb-info" id="lb-info"></div>
@@ -189,17 +249,17 @@ const TOWER = '<svg width="38" height="38" viewBox="0 0 24 24" fill="none" strok
   const both = K.filter(x=>x.k&&x.p).length;
   document.getElementById('lead').textContent =
     ``;
-  const S=[[K.length,"皮肤总数"],[both,"双塔图齐全"],[col,"可收集"],[seas.size,"涉及赛季"],[shop,"可上架商店"]];
+  const S=[[K.length,T("stTotal")],[both,T("stBoth")],[col,T("stCol")],[seas.size,T("stSeasons")],[shop,T("stShop")]];
   document.getElementById('stats').innerHTML = S.map(([v,l],i)=>
     `<div class="stat${i===1?' warn':''}"><b>${v}</b><span>${l}</span></div>`).join('');
   const drop = META.droppedCount | 0;
   if(drop) document.getElementById('f-drop').textContent =
-    `另有 ${drop} 套因素材缺失未能渲染（${META.dropped.slice(0,4).map(esc).join("、")}${drop>4?" 等":""}）未列入本页。`;
+    T('dropNote', drop, META.dropped.slice(0,4).map(esc).join(LANG==='en'?", ":"、"), drop>4?T('etcMore'):'');
 })();
 
 const seaCount={};
 K.forEach(x=>{ if(x.s) seaCount[x.s]=(seaCount[x.s]||0)+1; });
-document.getElementById('sea').innerHTML = '<option value="">全部赛季</option>' +
+document.getElementById('sea').innerHTML = '<option value="">'+T("seaAll")+'</option>' +
   Object.keys(seaCount).sort((a,b)=>a-b).map(s=>`<option value="${s}">Season ${s} (${seaCount[s]})</option>`).join('');
 
 const S = {q:"", sea:"", sort:"idx", col:false, shop:false, hid:false};
@@ -226,22 +286,22 @@ const grid=document.getElementById('grid'), countEl=document.getElementById('cou
 let VIEW=[];
 function esc(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
 function duo(x){
-  if(x.k&&x.p) return `<img class="k" loading="lazy" decoding="async" src="${IMG}${x.k}" alt="${esc(x.t)} 国王塔"><img class="p" loading="lazy" decoding="async" src="${IMG}${x.p}" alt="公主塔">`;
+  if(x.k&&x.p) return `<img class="k" loading="lazy" decoding="async" src="${IMG}${x.k}" alt="${esc(x.t)} ${T('kingTower')}"><img class="p" loading="lazy" decoding="async" src="${IMG}${x.p}" alt="${T('prinTower')}">`;
   const src=x.k||x.p;
   return `<div class="one"><img loading="lazy" decoding="async" src="${IMG}${src}" alt="${esc(x.t)}"></div>`;
 }
 function card(x){
   const badges =
-    (x.col?`<div class="badge" title="Collectable">可收集</div>`:"")+
-    (x.shop?`<div class="badge shop" title="AvailableForShopOffer">可上架</div>`:"")+
-    (x.hid?`<div class="badge hide" title="HiddenFromClient">隐藏</div>`:"");
+    (x.col?`<div class="badge" title="Collectable">${T("col")}</div>`:"")+
+    (x.shop?`<div class="badge shop" title="AvailableForShopOffer">${T("shop")}</div>`:"")+
+    (x.hid?`<div class="badge hide" title="HiddenFromClient">${T("hidden")}</div>`:"");
   return `<article class="card" tabindex="0" data-n="${esc(x.n)}">
     <div class="stripe" style="--hc:${x.s?'#1f9e6a':'#8792ad'}"></div>
     <div class="thumb">${badges}${duo(x)}</div>
     <div class="cbody">
       <div class="cname">${esc(x.t||x.n)}</div>
       <div class="cmeta">
-        ${x.s?`<span class="fam">Season ${x.s}</span>`:`<span class="fam" style="background:#f1f4fb;color:#4a5570">基础</span>`}
+        ${x.s?`<span class="fam">Season ${x.s}</span>`:`<span class="fam" style="background:#f1f4fb;color:#4a5570">${T("base")}</span>`}
         <span class="yr">Id ${esc(x.id)}</span>
       </div>
     </div>
@@ -249,7 +309,7 @@ function card(x){
 }
 function render(){
   VIEW=K.filter(match).sort(sortList);
-  countEl.innerHTML=`显示 <b>${VIEW.length}</b> / ${K.length} 套塔皮肤`;
+  countEl.innerHTML=T('countSkins', VIEW.length, K.length);
   emptyEl.style.display=VIEW.length?"none":"block";
   grid.innerHTML=VIEW.map(card).join('');
 }
@@ -269,24 +329,24 @@ function openBy(i){
   if(i<0||i>=VIEW.length) return;
   cur=i; const x=VIEW[i];
   document.getElementById('lb-vis').innerHTML = (x.k||x.p)
-    ? `${x.k?`<img class="k" src="${IMG}${x.k}" alt="国王塔">`:""}${x.p?`<img class="p" src="${IMG}${x.p}" alt="公主塔">`:""}`
-    : `<div class="none">${TOWER}<div style="margin-top:8px">素材未收录</div></div>`;
+    ? `${x.k?`<img class="k" src="${IMG}${x.k}" alt="${T('kingTower')}">`:""}${x.p?`<img class="p" src="${IMG}${x.p}" alt="${T('prinTower')}">`:""}`
+    : `<div class="none">${TOWER}<div style="margin-top:8px">${T("noAsset")}</div></div>`;
   const tgs=[];
-  if(x.col) tgs.push('<span class="tg g">可收集</span>');
-  if(x.shop) tgs.push('<span class="tg b">可上架商店</span>');
-  if(x.hid) tgs.push('<span class="tg">对客户端隐藏</span>');
+  if(x.col) tgs.push('<span class="tg g">'+T("tgCol")+'</span>');
+  if(x.shop) tgs.push('<span class="tg b">'+T("tgShop")+'</span>');
+  if(x.hid) tgs.push('<span class="tg">'+T("tgHidden")+'</span>');
   if(x.s) tgs.push(`<span class="tg">Season ${x.s}</span>`);
   document.getElementById('lb-info').innerHTML=`
     <h2>${esc(x.t||x.n)}</h2>
-    <div class="lb-sub">${x.s?"Season "+x.s+" · ":""}数据名 ${esc(x.n)}</div>
+    <div class="lb-sub">${x.s?"Season "+x.s+" · ":""}${T("dataName")} ${esc(x.n)}</div>
     <div class="lb-tags">${tgs.join('')}</div>
     <dl>
-      <dt>皮肤 Id</dt><dd>${esc(x.id)}</dd>
-      <dt>精灵文件</dt><dd>${esc(x.sc)}</dd>
-      <dt>国王塔导出</dt><dd>${esc(x.ke||"—")}</dd>
-      <dt>公主塔导出</dt><dd>${esc(x.pe||"—")}</dd>
+      <dt>${T("skinId")}</dt><dd>${esc(x.id)}</dd>
+      <dt>${T("spriteFile")}</dt><dd>${esc(x.sc)}</dd>
+      <dt>${T("kingExport")}</dt><dd>${esc(x.ke||"—")}</dd>
+      <dt>${T("prinExport")}</dt><dd>${esc(x.pe||"—")}</dd>
     </dl>
-    ${(!x.k||!x.p)?`<div class="lb-tags" style="margin-top:14px"><span class="tg" style="background:#fff8e6;color:#7a5a10">该精灵内未找到${!x.k?"国王塔":""}${(!x.k&&!x.p)?"、":""}${!x.p?"公主塔":""}导出，图省略</span></div>`:""}
+    ${(!x.k||!x.p)?`<div class="lb-tags" style="margin-top:14px"><span class="tg" style="background:#fff8e6;color:#7a5a10">${T("missingExport", !x.k?T("kingTower"):"", (!x.k&&!x.p)?T("sep"):"", !x.p?T("prinTower"):"")}</span></div>`:""}
   `;
   lb.classList.add('open');
   document.body.style.overflow='hidden';
@@ -317,7 +377,7 @@ tgl('t-col','col'); tgl('t-shop','shop'); tgl('t-hid','hid');
 document.getElementById('reset').onclick=()=>{
   S.q="";S.sea="";S.sort="idx";S.col=false;S.shop=false;S.hid=false;
   document.getElementById('q').value="";document.getElementById('sea').value="";document.getElementById('sort').value="idx";
-  document.querySelectorAll('.tgl.on').forEach(el=>el.classList.remove('on'));
+  document.querySelectorAll('.tgl.on:not(#l-zh):not(#l-en)').forEach(el=>el.classList.remove('on'));
   render();
 };
 render();
